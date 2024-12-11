@@ -1,0 +1,22 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Buscar amigo</mat-label>
+    <input
+      type="text"
+      placeholder="buscar amigo"
+      aria-label="Digite o produto que você quer encontrar"
+      matInput
+      [formControl]="control"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      @for (friends of friends$ | async; track friends.id) {
+      <mat-option
+        [routerLink]="['/amigo', friends.id]"
+        [value]="friends.name"
+        >{{ friends.name }}</mat-option
+      >
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
