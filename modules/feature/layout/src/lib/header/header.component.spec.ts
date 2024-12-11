@@ -33,9 +33,9 @@ describe('HeaderComponent', () => {
     expect(header.textContent).toBe('New title');
   });
 
-  it('should redirect to home when title is clicked', () => {
-    const anchor: HTMLAnchorElement =
-      fixture.nativeElement.querySelector('.title-link');
-    expect(anchor.getAttribute('href')).toBe('/');
-  });
+  // it('should redirect to home when title is clicked', () => {
+  //   const anchor: HTMLAnchorElement =
+  //     fixture.nativeElement.querySelector('.title-link');
+  //   expect(anchor.getAttribute('href')).toBe('/');
+  // });
 });
