@@ -10,6 +10,10 @@
       >
     </div>
 
+    <ng-content></ng-content>
+    <ng-content select="[right]"></ng-content>
+
+    @if(false){
     <!-- Navegação -->
     <nav class="hidden md:flex space-x-6">
       <a href="#" class="hover:text-blue-300">Agenda</a>
@@ -24,6 +28,7 @@
     >
       Quer ser meu amigo?
     </a>
+    }
 
     <!-- Botão do menu (mobile) -->
     <button class="md:hidden flex items-center text-white focus:outline-none">
