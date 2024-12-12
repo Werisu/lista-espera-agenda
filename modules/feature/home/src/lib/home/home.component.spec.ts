@@ -34,7 +34,7 @@ describe('HomeComponent', () => {
 
   it('should render friends cards correctly', () => {
     const cards: HTMLElement[] =
-      fixture.nativeElement.querySelectorAll('.friend-card');
+      fixture.nativeElement.querySelectorAll('lib-friend-card');
     expect(cards.length).toBe(mockFriends.length);
   });
 });
