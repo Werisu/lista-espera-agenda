@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { mockFriends } from '@lista-espera-agenda/friend-data-access';
 
 @Component({
   selector: 'lib-home',
@@ -7,4 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  friends = mockFriends;
+}
