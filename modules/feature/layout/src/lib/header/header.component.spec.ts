@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { HeaderComponent } from './header.component';
 
 const mockTitle = 'Agenda de Amigos';
@@ -10,6 +10,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [HeaderComponent],
     }).compileComponents();
 
@@ -33,9 +34,9 @@ describe('HeaderComponent', () => {
     expect(header.textContent).toBe('New title');
   });
 
-  // it('should redirect to home when title is clicked', () => {
-  //   const anchor: HTMLAnchorElement =
-  //     fixture.nativeElement.querySelector('.title-link');
-  //   expect(anchor.getAttribute('href')).toBe('/');
-  // });
+  it('should redirect to home when title is clicked', () => {
+    const anchor: HTMLAnchorElement =
+      fixture.nativeElement.querySelector('.header__logo');
+    expect(anchor.getAttribute('href')).toBe('/');
+  });
 });
