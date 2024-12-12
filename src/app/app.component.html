@@ -1,3 +1,12 @@
 <lib-header title="Agenda de Amigos">
-  <lib-friend-search></lib-friend-search>
+  <lib-friend-search class="hidden md:inline-block" right></lib-friend-search>
+  <!-- Navegação -->
+  <nav class="hidden md:flex space-x-6">
+    <a href="#" class="hover:text-blue-300">Agenda</a>
+    <a href="#" class="hover:text-blue-300">Amigos</a>
+    <a href="#" class="hover:text-blue-300">Contato</a>
+  </nav>
 </lib-header>
+<div class="p-5 bg-white dark:bg-gray-900 antialiased">
+  <router-outlet></router-outlet>
+</div>

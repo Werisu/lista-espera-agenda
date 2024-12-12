@@ -5,8 +5,8 @@
       <a
         routerLink="/"
         routerLinkActive="router-link-active"
-        class="hover:text-blue-300 title-link cursor-pointer"
-        >{{ title }}</a
+        class="hover:text-blue-300 cursor-pointer header__logo"
+        ><h1 class="header__title">{{ title }}</h1></a
       >
     </div>
 
@@ -14,12 +14,6 @@
     <ng-content select="[right]"></ng-content>
 
     @if(false){
-    <!-- Navegação -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="#" class="hover:text-blue-300">Agenda</a>
-      <a href="#" class="hover:text-blue-300">Amigos</a>
-      <a href="#" class="hover:text-blue-300">Contato</a>
-    </nav>
 
     <!-- Botão CTA -->
     <a

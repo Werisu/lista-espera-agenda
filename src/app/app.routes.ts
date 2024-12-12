@@ -6,4 +6,9 @@ export const appRoutes: Route[] = [
     pathMatch: 'full',
     redirectTo: 'home',
   },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('@lista-espera-agenda/home').then((r) => r.homeRoutes),
+  },
 ];
