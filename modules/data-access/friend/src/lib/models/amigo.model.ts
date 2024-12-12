@@ -5,6 +5,8 @@ export type Amigo = {
   id: string;
   cost: string;
   meetings: number;
+  birthday: string;
+  age: number;
 };
 
 export type AmigoWithoutId = Omit<Amigo, 'id'>;

@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, inject } from '@angular/core';
+import {
+  Amigo,
+  FriendSearchService,
+} from '@lista-espera-agenda/friend-data-access';
+import { Observable, switchMap } from 'rxjs';
 import { getParams } from './get-params';
 
 @Component({
@@ -10,6 +14,9 @@ import { getParams } from './get-params';
   styleUrl: './friend-detail.component.scss',
 })
 export class FriendDetailComponent {
-  @Input() id!: string;
-  id$: Observable<string> = getParams();
+  private friendSearchService = inject(FriendSearchService);
+
+  friend$: Observable<Amigo> = getParams().pipe(
+    switchMap((id) => this.friendSearchService.getById(id))
+  );
 }
