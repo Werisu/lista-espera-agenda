@@ -8,12 +8,16 @@
             class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0"
           >
             <div>
-              <p class="font-bold text-gray-700 text-xl">22</p>
-              <p class="text-gray-400">Friends</p>
+              <p class="font-bold text-gray-700 text-xl">
+                {{ friend.encounters.length }}
+              </p>
+              <p class="text-gray-400">Encontros</p>
             </div>
             <div>
-              <p class="font-bold text-gray-700 text-xl">10</p>
-              <p class="text-gray-400">Photos</p>
+              <p class="font-bold text-gray-700 text-xl">
+                {{ friend.cost | currency : 'BRL' }}
+              </p>
+              <p class="text-gray-400">Valor</p>
             </div>
             <div>
               <p class="font-bold text-gray-700 text-xl">89</p>
@@ -24,6 +28,13 @@
             <div
               class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500"
             >
+              @if(friend.avatar){
+              <img
+                [src]="friend.avatar"
+                [alt]="friend.name"
+                class="w-full h-full rounded-full object-cover"
+              />
+              }@else {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-24 w-24"
@@ -36,6 +47,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
+              }
             </div>
           </div>
           <div
@@ -43,8 +55,9 @@
           >
             <button
               class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+              (click)="openDialog(friend)"
             >
-              Connect
+              Editar
             </button>
             <button
               class="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
