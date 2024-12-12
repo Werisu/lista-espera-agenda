@@ -4,7 +4,7 @@
   "sourceRoot": "modules/ui/friend/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": ["type:ui"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",

@@ -19,4 +19,8 @@ export class FriendSearchService {
   getById(id: string): Observable<Amigo> {
     return this.http.get<Amigo>(`${this.apiUrl}/amigos/${id}`);
   }
+
+  put(friend: Amigo): Observable<Amigo> {
+    return this.http.put<Amigo>(`${this.apiUrl}/amigos/${friend.id}`, friend);
+  }
 }
