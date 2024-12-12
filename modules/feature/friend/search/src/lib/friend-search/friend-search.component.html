@@ -12,7 +12,7 @@
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
       @for (friends of friends$ | async; track friends.id) {
       <mat-option
-        [routerLink]="['/amigo', friends.id]"
+        [routerLink]="['/friend', friends.id]"
         [value]="friends.name"
         >{{ friends.name }}</mat-option
       >

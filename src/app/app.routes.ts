@@ -11,4 +11,11 @@ export const appRoutes: Route[] = [
     loadChildren: () =>
       import('@lista-espera-agenda/home').then((r) => r.homeRoutes),
   },
+  {
+    path: 'friend',
+    loadChildren: () =>
+      import('@lista-espera-agenda/friend-detail').then(
+        (r) => r.friendDetailRoutes
+      ),
+  },
 ];

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { getParams } from './get-params';
 
 @Component({
   selector: 'lib-friend-detail',
@@ -7,4 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './friend-detail.component.html',
   styleUrl: './friend-detail.component.scss',
 })
-export class FriendDetailComponent {}
+export class FriendDetailComponent {
+  @Input() id!: string;
+  id$: Observable<string> = getParams();
+}

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { FriendDetailComponent } from './friend-detail.component';
 
 describe('FriendDetailComponent', () => {
@@ -7,7 +8,7 @@ describe('FriendDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FriendDetailComponent],
+      imports: [FriendDetailComponent, RouterTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FriendDetailComponent);
