@@ -21,6 +21,7 @@
       "@lista-espera-agenda/friend-search": [
         "modules/feature/friend/search/src/index.ts"
       ],
+      "@lista-espera-agenda/friend-ui": ["modules/ui/friend/src/index.ts"],
       "@lista-espera-agenda/home": ["modules/feature/home/src/index.ts"],
       "@lista-espera-agenda/layout": ["modules/feature/layout/src/index.ts"]
     }
