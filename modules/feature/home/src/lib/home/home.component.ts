@@ -1,13 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { mockFriends } from '@lista-espera-agenda/friend-data-access';
+import { TopFriendsService } from '@lista-espera-agenda/friend-data-access';
+import { FriendCardComponent } from '@lista-espera-agenda/friend-ui';
 
 @Component({
   selector: 'lib-home',
-  imports: [CommonModule],
+  imports: [CommonModule, FriendCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  friends = mockFriends;
+  friends$;
+
+  constructor(private topFriendsService: TopFriendsService) {
+    this.friends$ = this.topFriendsService.getFriends();
+  }
 }

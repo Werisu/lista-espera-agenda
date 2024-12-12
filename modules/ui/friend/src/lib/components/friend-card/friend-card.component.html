@@ -1,0 +1,19 @@
+<div
+  class="friend-card bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 relative"
+>
+  <img
+    [src]="friend.avatar"
+    [alt]="friend.name"
+    class="w-16 h-16 rounded-full object-cover border-2 border-gray-300"
+  />
+  <div class="text-left">
+    <h3 class="text-lg font-medium">{{ friend.name }}</h3>
+    <p class="text-sm text-gray-500">
+      Gasto: {{ friend.cost | currency : 'BRL' }}
+    </p>
+  </div>
+  <span
+    class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 absolute top-2 right-2"
+    >{{ friend.meetings }}</span
+  >
+</div>
