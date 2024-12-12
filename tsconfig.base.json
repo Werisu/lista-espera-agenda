@@ -18,6 +18,9 @@
       "@lista-espera-agenda/friend-data-access": [
         "modules/data-access/friend/src/index.ts"
       ],
+      "@lista-espera-agenda/friend-detail": [
+        "modules/feature/friend/detail/src/index.ts"
+      ],
       "@lista-espera-agenda/friend-search": [
         "modules/feature/friend/search/src/index.ts"
       ],
