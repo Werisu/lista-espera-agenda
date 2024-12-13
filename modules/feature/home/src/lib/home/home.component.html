@@ -8,22 +8,16 @@
       class="friend-card-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
     >
       <!-- agenda cards -->
-      <div class="p-8 flex items-center">
-        <div class="pr-4 bg-blue-500 p-2 rounded-lg text-center">
-          <p class="text-4xl font-bold text-white">13</p>
-          <p class="text-sm text-white">Dezembro, 2024</p>
-        </div>
-        <div class="ml-4">
-          <div
-            class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-          >
-            Assistir um filme
-          </div>
-          <p class="mt-2 text-gray-500">19:00 PM - 9:00 PM</p>
-          <p class="mt-2 text-gray-500">Fellyphe Augustho</p>
-          <p class="mt-2 text-gray-500">Não lembro o endereço</p>
-        </div>
-      </div>
+      @if(encounters$ | async; as encounters){
+      <!-- interando lista de encontros -->
+      @for(encounter of encounters; track encounter.id){
+      <!-- usando o pipe friendName -->
+      @if(encounter.amigoId | friendName | async; as friendGetId){
+      <lib-encounters-card
+        [encounter]="encounter"
+        [friend]="friendGetId"
+      ></lib-encounters-card>
+      } } }
       <!--/ agenda cards -->
     </div>
   </section>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { Amigo, Encounter } from '@lista-espera-agenda/friend-data-access';
 
 @Component({
   selector: 'lib-encounters-card',
@@ -7,4 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './encounters-card.component.html',
   styleUrl: './encounters-card.component.scss',
 })
-export class EncountersCardComponent {}
+export class EncountersCardComponent {
+  @Input({ required: true }) encounter!: Encounter;
+  @Input({ required: true }) friend!: Amigo;
+}
