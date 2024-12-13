@@ -20,4 +20,5 @@ export type Encounter = {
   amigoId: string;
   location: string;
   description: string;
+  status: string;
 };
