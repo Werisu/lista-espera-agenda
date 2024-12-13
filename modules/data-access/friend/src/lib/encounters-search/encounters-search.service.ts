@@ -20,4 +20,11 @@ export class EncountersSearchService {
   getById(id: string): Observable<Encounter> {
     return this.http.get<Encounter>(`${this.apiUrl}/encounters/${id}`);
   }
+
+  put(encounter: Encounter): Observable<Encounter> {
+    return this.http.put<Encounter>(
+      `${this.apiUrl}/encounters/${encounter.id}`,
+      encounter
+    );
+  }
 }
