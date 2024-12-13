@@ -6,6 +6,7 @@ import {
   FriendSearchService,
   mockFriends,
 } from '@lista-espera-agenda/friend-data-access';
+import { getParams } from '@lista-espera-agenda/friend-detail';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,6 +16,7 @@ import { Observable } from 'rxjs';
   styleUrl: './encounters-detail.component.scss',
 })
 export class EncountersDetailComponent {
+  id$ = getParams();
   card: Encounter = mockFriends[0].encounters[0];
   friend$: Observable<Amigo> = inject(FriendSearchService).getById(
     this.card.amigoId
