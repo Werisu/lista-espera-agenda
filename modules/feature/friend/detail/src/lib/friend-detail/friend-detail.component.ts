@@ -31,7 +31,7 @@ export class FriendDetailComponent {
         this.friendSearchService.put(result).subscribe({
           next: (res) => {
             if (res) {
-              this.friendSearchService.put(res);
+              this.friend$ = this.friendSearchService.getById(result.id);
             }
           },
         });

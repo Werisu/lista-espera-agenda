@@ -18,4 +18,6 @@ export type Encounter = {
   date: string;
   id: string;
   amigoId: string;
+  location: string;
+  description: string;
 };

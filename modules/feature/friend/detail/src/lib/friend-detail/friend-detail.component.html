@@ -2,7 +2,7 @@
   <section>
     @if(friend$ | async; as friend){
     <div class="p-16">
-      <div class="p-8 bg-white shadow mt-24">
+      <div class="p-8 bg-white shadow mt-24 rounded-md">
         <div class="grid grid-cols-1 md:grid-cols-3">
           <div
             class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0"
@@ -14,14 +14,18 @@
               <p class="text-gray-400">Encontros</p>
             </div>
             <div>
+              @defer(on interaction){
               <p class="font-bold text-gray-700 text-xl">
                 {{ friend.cost | currency : 'BRL' }}
               </p>
+              }@placeholder {
+              <p>----</p>
+              }
               <p class="text-gray-400">Valor</p>
             </div>
             <div>
-              <p class="font-bold text-gray-700 text-xl">89</p>
-              <p class="text-gray-400">Comments</p>
+              <p class="font-bold text-gray-700 text-xl">2</p>
+              <p class="text-gray-400">Presentes</p>
             </div>
           </div>
           <div class="relative">
@@ -66,12 +70,75 @@
             </button>
           </div>
         </div>
+
+        <!-- tabela de encontros -->
+        <div class="overflow-x-auto mt-20 border-b pb-12">
+          <table
+            class="min-w-full border border-gray-300 bg-white shadow-md rounded-lg"
+          >
+            <thead class="bg-gray-100">
+              <tr>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700 border-b"
+                >
+                  Data
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700 border-b"
+                >
+                  Hora
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700 border-b"
+                >
+                  Local
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700 border-b"
+                >
+                  Descrição
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Exemplo de linha: adicione dinamicamente os dados aqui -->
+              @for(encounter of friend.encounters; track encounter.id){
+              <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
+                <td class="px-4 py-2 text-sm text-gray-700 border-b">
+                  {{ encounter.date | date : 'dd/MM/yyyy' }}
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-700 border-b">20:00</td>
+                <td class="px-4 py-2 text-sm text-gray-700 border-b">
+                  {{ encounter.location }}
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-700 border-b">
+                  {{ encounter.description }}
+                </td>
+              </tr>
+              }
+              <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
+                <td class="px-4 py-2 text-sm text-gray-700 border-b">
+                  14/12/2024
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-700 border-b">20:00</td>
+                <td class="px-4 py-2 text-sm text-gray-700 border-b">
+                  Ergon Sistemas
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-700 border-b">
+                  Confraternização
+                </td>
+              </tr>
+              <!-- Adicione mais registros conforme necessário -->
+            </tbody>
+          </table>
+        </div>
+        <!--/ tabela de encontros -->
         <div class="mt-20 text-center border-b pb-12">
           <h1 class="text-4xl font-medium text-gray-700">
             {{ friend.name }},
             <span class="font-light text-gray-500">{{ friend.age }}</span>
           </h1>
-          <p class="font-light text-gray-600 mt-3">Bucharest, Romania</p>
+          <p class="font-light text-gray-600 mt-3">{{ friend.address }}</p>
           <p class="mt-8 text-gray-500">
             Solution Manager - Creative Tim Officer
           </p>

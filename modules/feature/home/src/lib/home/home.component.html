@@ -1,4 +1,32 @@
 <main class="home">
+  <section class="w-full p-4 text-center sm:p-8">
+    <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
+      Próximos eventos
+    </h5>
+
+    <div
+      class="friend-card-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+    >
+      <!-- agenda cards -->
+      <div class="p-8 flex items-center">
+        <div class="pr-4 bg-blue-500 p-2 rounded-lg text-center">
+          <p class="text-4xl font-bold text-white">13</p>
+          <p class="text-sm text-white">Dezembro, 2024</p>
+        </div>
+        <div class="ml-4">
+          <div
+            class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+          >
+            Assistir um filme
+          </div>
+          <p class="mt-2 text-gray-500">19:00 PM - 9:00 PM</p>
+          <p class="mt-2 text-gray-500">Fellyphe Augustho</p>
+          <p class="mt-2 text-gray-500">Não lembro o endereço</p>
+        </div>
+      </div>
+      <!--/ agenda cards -->
+    </div>
+  </section>
   <section
     class="w-full p-4 text-center sm:p-8 dark:bg-gray-800 dark:border-gray-700"
   >
@@ -9,6 +37,7 @@
     <div
       class="friend-card-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
     >
+      <!-- friend cards -->
       @if(friends$ | async; as friends){ @for(friend of friends |
       orderByMeetings; track friend.id){
       <lib-friend-card [friend]="friend"></lib-friend-card>
@@ -17,6 +46,7 @@
         >Você ainda não possui amigos mais chegados por enquanto.</strong
       >
       } }
+      <!--/ friend cards -->
     </div>
   </section>
 </main>
