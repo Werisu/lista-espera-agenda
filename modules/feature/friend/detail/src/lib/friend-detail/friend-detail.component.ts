@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {
   Amigo,
   FriendSearchService,
@@ -19,6 +19,7 @@ import { getParams } from './get-params';
 })
 export class FriendDetailComponent {
   private friendSearchService = inject(FriendSearchService);
+  private navigate = inject(Router);
   readonly dialog = inject(MatDialog);
 
   friend$: Observable<Amigo> = getParams().pipe(
@@ -38,6 +39,14 @@ export class FriendDetailComponent {
           },
         });
       }
+    });
+  }
+
+  deleteFriend(id: string) {
+    this.friendSearchService.delete(id).subscribe({
+      next: () => {
+        this.navigate.navigate(['/']);
+      },
     });
   }
 }

@@ -11,8 +11,8 @@
     <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
       {{ encounter.description }}
     </div>
-    <p class="mt-2 text-gray-500">19:00 PM - 9:00 PM</p>
+    <p class="mt-2 text-gray-500">{{ encounter.date | date : 'HH:mm' }}</p>
     <p class="mt-2 text-gray-500">{{ friend.name }}</p>
-    <p class="mt-2 text-gray-500">{{ friend.address }}</p>
+    <p class="mt-2 text-gray-500">{{ encounter.location }}</p>
   </div>
 </div>
