@@ -2,6 +2,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { environment } from '../environments/environment.development';
 import { appRoutes } from './app.routes';
 import { httpErrorsInterceptor } from './interceptors/http-errors/http-errors.interceptor';
 
@@ -11,5 +12,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes, withComponentInputBinding()),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([httpErrorsInterceptor])),
+    {
+      provide: 'API_URL',
+      useValue: environment.apiUrl,
+    },
   ],
 };
