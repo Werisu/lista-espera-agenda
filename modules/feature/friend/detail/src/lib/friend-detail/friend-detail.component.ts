@@ -5,13 +5,14 @@ import {
   Amigo,
   FriendSearchService,
 } from '@lista-espera-agenda/friend-data-access';
+import { EncountersTableComponent } from '@lista-espera-agenda/friend-ui';
 import { Observable, switchMap } from 'rxjs';
 import { FriendEditComponent } from './dialog/friend-edit/friend-edit.component';
 import { getParams } from './get-params';
 
 @Component({
   selector: 'lib-friend-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, EncountersTableComponent],
   templateUrl: './friend-detail.component.html',
   styleUrl: './friend-detail.component.scss',
 })

@@ -71,90 +71,19 @@
           </div>
         </div>
 
-        <!-- tabela de encontros -->
-        <div class="overflow-x-auto mt-20 border-b pb-12">
-          <table
-            class="min-w-full border border-gray-300 bg-white shadow-md rounded-lg"
-          >
-            <thead class="bg-gray-100">
-              <tr>
-                <th
-                  class="px-4 py-2 text-left text-sm font-medium text-gray-700 border-b"
-                >
-                  Data
-                </th>
-                <th
-                  class="px-4 py-2 text-left text-sm font-medium text-gray-700 border-b"
-                >
-                  Hora
-                </th>
-                <th
-                  class="px-4 py-2 text-left text-sm font-medium text-gray-700 border-b"
-                >
-                  Local
-                </th>
-                <th
-                  class="px-4 py-2 text-left text-sm font-medium text-gray-700 border-b"
-                >
-                  Descrição
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Exemplo de linha: adicione dinamicamente os dados aqui -->
-              @for(encounter of friend.encounters; track encounter.id){
-              <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
-                <td class="px-4 py-2 text-sm text-gray-700 border-b">
-                  {{ encounter.date | date : 'dd/MM/yyyy' }}
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-700 border-b">20:00</td>
-                <td class="px-4 py-2 text-sm text-gray-700 border-b">
-                  {{ encounter.location }}
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-700 border-b">
-                  {{ encounter.description }}
-                </td>
-              </tr>
-              }
-              <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
-                <td class="px-4 py-2 text-sm text-gray-700 border-b">
-                  14/12/2024
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-700 border-b">20:00</td>
-                <td class="px-4 py-2 text-sm text-gray-700 border-b">
-                  Ergon Sistemas
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-700 border-b">
-                  Confraternização
-                </td>
-              </tr>
-              <!-- Adicione mais registros conforme necessário -->
-            </tbody>
-          </table>
-        </div>
-        <!--/ tabela de encontros -->
-        <div class="mt-20 text-center border-b pb-12">
+        <div class="mt-20 text-center pb-4">
           <h1 class="text-4xl font-medium text-gray-700">
             {{ friend.name }},
             <span class="font-light text-gray-500">{{ friend.age }}</span>
           </h1>
           <p class="font-light text-gray-600 mt-3">{{ friend.address }}</p>
-          <p class="mt-8 text-gray-500">
-            Solution Manager - Creative Tim Officer
-          </p>
-          <p class="mt-2 text-gray-500">University of Computer Science</p>
         </div>
-        <div class="mt-12 flex flex-col justify-center">
-          <p class="text-gray-600 text-center font-light lg:px-16">
-            An artist of considerable range, Ryan — the name taken by
-            Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and
-            records all of his own music, giving it a warm, intimate feel with a
-            solid groove structure. An artist of considerable range.
-          </p>
-          <button class="text-indigo-500 py-2 px-4 font-medium mt-4">
-            Show more
-          </button>
-        </div>
+
+        <!-- tabela de encontros -->
+        <lib-encounters-table
+          [encounters]="friend.encounters"
+        ></lib-encounters-table>
+        <!--/ tabela de encontros -->
       </div>
     </div>
     }
