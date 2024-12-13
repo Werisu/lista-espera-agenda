@@ -21,6 +21,16 @@ export class EncountersSearchService {
     return this.http.get<Encounter>(`${this.apiUrl}/encounters/${id}`);
   }
 
+  getEncounters(): Observable<Encounter[]> {
+    return this.http.get<Encounter[]>(`${this.apiUrl}/encounters`);
+  }
+
+  getEncountersByStatus(status: string): Observable<Encounter[]> {
+    return this.http.get<Encounter[]>(`${this.apiUrl}/encounters`, {
+      params: { status },
+    });
+  }
+
   put(encounter: Encounter): Observable<Encounter> {
     return this.http.put<Encounter>(
       `${this.apiUrl}/encounters/${encounter.id}`,
