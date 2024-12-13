@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 import {
   Amigo,
   FriendSearchService,
@@ -12,7 +13,7 @@ import { getParams } from './get-params';
 
 @Component({
   selector: 'lib-friend-detail',
-  imports: [CommonModule, EncountersTableComponent],
+  imports: [CommonModule, EncountersTableComponent, RouterModule],
   templateUrl: './friend-detail.component.html',
   styleUrl: './friend-detail.component.scss',
 })

@@ -28,12 +28,13 @@
         <td class="px-6 py-4">{{ encounter.description }}</td>
         <td class="px-6 py-4">Ativo</td>
         <td class="px-6 py-4">
-          <button
-            (click)="openDialog(encounter)"
+          <a
+            [routerLink]="['/encounters', encounter.id]"
+            routerLinkActive="router-link-active"
             class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
           >
-            Editar
-          </button>
+            Ver
+          </a>
         </td>
       </tr>
       }

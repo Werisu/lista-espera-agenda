@@ -18,4 +18,11 @@ export const appRoutes: Route[] = [
         (r) => r.friendDetailRoutes
       ),
   },
+  {
+    path: 'encounters',
+    loadChildren: () =>
+      import('@lista-espera-agenda/encounters-detail').then(
+        (r) => r.encountersDetailRoutes
+      ),
+  },
 ];
