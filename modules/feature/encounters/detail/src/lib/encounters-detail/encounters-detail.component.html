@@ -1,7 +1,8 @@
 <div class="bg-white max-w-2xl shadow overflow-hidden sm:rounded-lg mx-auto">
+  @if(encounter$ | async; as card){
   <div class="px-4 py-5 sm:px-6">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
-      Dados do encontro {{ id$ | async }}
+      Dados do encontro {{ card.id }}
     </h3>
     <p class="mt-1 max-w-2xl text-sm text-gray-500">
       Detalhes e informações sobre o encontro.
@@ -35,4 +36,7 @@
       </div>
     </dl>
   </div>
+  }@else {
+  <span>Carregando ...</span>
+  }
 </div>

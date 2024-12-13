@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   Amigo,
-  Encounter,
+  EncountersSearchService,
   FriendSearchService,
-  mockFriends,
 } from '@lista-espera-agenda/friend-data-access';
 import { getParams } from '@lista-espera-agenda/friend-detail';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 
 @Component({
   selector: 'lib-encounters-detail',
@@ -16,9 +15,18 @@ import { Observable } from 'rxjs';
   styleUrl: './encounters-detail.component.scss',
 })
 export class EncountersDetailComponent {
-  id$ = getParams();
-  card: Encounter = mockFriends[0].encounters[0];
-  friend$: Observable<Amigo> = inject(FriendSearchService).getById(
-    this.card.amigoId
+  private friendSearchService = inject(FriendSearchService);
+  private encountersSearchService = inject(EncountersSearchService);
+
+  encounter$ = getParams().pipe(
+    switchMap((id) => {
+      return this.encountersSearchService.getById(id);
+    })
+  );
+
+  friend$: Observable<Amigo> = this.encounter$.pipe(
+    switchMap((encounter) => {
+      return this.friendSearchService.getById(encounter.amigoId);
+    })
   );
 }

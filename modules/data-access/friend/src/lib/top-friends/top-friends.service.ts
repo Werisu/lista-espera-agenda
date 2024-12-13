@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Inject, inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Amigo } from '../models/amigo.model';
 
@@ -7,8 +7,9 @@ import { Amigo } from '../models/amigo.model';
   providedIn: 'root',
 })
 export class TopFriendsService {
-  readonly apiUrl = 'https://6759e30b099e3090dbe339e5.mockapi.io';
   private http = inject(HttpClient);
+
+  constructor(@Inject('API_URL') private apiUrl: string) {}
 
   getFriends(): Observable<Amigo[]> {
     return this.http.get<Amigo[]>(`${this.apiUrl}/amigos`, {
