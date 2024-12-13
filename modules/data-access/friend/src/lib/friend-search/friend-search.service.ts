@@ -24,4 +24,8 @@ export class FriendSearchService {
   put(friend: Amigo): Observable<Amigo> {
     return this.http.put<Amigo>(`${this.apiUrl}/amigos/${friend.id}`, friend);
   }
+
+  delete(id: string) {
+    return this.http.delete(`${this.apiUrl}/amigos/${id}`);
+  }
 }
